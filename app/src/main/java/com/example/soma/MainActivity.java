@@ -40,33 +40,44 @@ public class MainActivity extends AppCompatActivity {
 
         // SOMAR
         btnSomar.setOnClickListener(v -> {
-            Double n1 = Double.valueOf(edtPrimeiroNumero.getText().toString());
-            Double n2 = Double.valueOf(edtSegundoNumero.getText().toString());
-            Double resultado = n1 + n2;
-            txvResultado.setText(String.valueOf(resultado));
+            try {
+                Double n1 = Double.valueOf(edtPrimeiroNumero.getText().toString());
+                Double n2 = Double.valueOf(edtSegundoNumero.getText().toString());
+                Double resultado = n1 + n2;
+                txvResultado.setText(String.valueOf(resultado));
+                    } catch (NumberFormatException e) {
+                    txvResultado.setText("Por favor,insira números válidos");
+                }
         });
 
         // SUBTRAIR
         btnSub.setOnClickListener(v -> {
+            try {
             Double n1 = Double.valueOf(edtPrimeiroNumero.getText().toString());
             Double n2 = Double.valueOf(edtSegundoNumero.getText().toString());
             Double resultado = n1 - n2;
             txvResultado.setText(String.valueOf(resultado));
+            } catch (NumberFormatException e) {
+                txvResultado.setText("Por favor,insira números válidos");
+            }
         });
 
         // MULTIPLICAR
         btnMult.setOnClickListener(v -> {
+            try {
             Double n1 = Double.valueOf(edtPrimeiroNumero.getText().toString());
             Double n2 = Double.valueOf(edtSegundoNumero.getText().toString());
             Double resultado = n1 * n2;
             txvResultado.setText(String.valueOf(resultado));
+            } catch (NumberFormatException e) {
+                txvResultado.setText("Por favor,insira números válidos");
+            }
         });
 
         // DIVIDIR
         btnDiv.setOnClickListener(v -> {
             Double n1 = Double.valueOf(edtPrimeiroNumero.getText().toString());
-            Double n2 = Double.valueOf(edtSegundoNumero.getText().toString());
-
+            double n2 = Double.parseDouble(edtSegundoNumero.getText().toString());
             if (n2 == 0) {
                 txvResultado.setText("Erro: divisão por zero");
             } else {
